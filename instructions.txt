@@ -1,0 +1,1725 @@
+LEXICON MASTER - Advanced Vocabulary Intelligence Platform
+Complete Project Planning & Specification Document1. PROJECT OVERVIEW1.1 Application Name & Branding
+Name: LEXICON MASTER
+
+Tagline: "Master Your Vocabulary, Analyze Your Text"
+Purpose: Professional-grade vocabulary extraction, analysis, and enrichment platform for language learners, researchers, content analysts, and educators
+Target Users:
+
+Language learners (English & Bengali speakers)
+Academic researchers
+Journalists and content creators
+ESL/EFL educators
+Content strategists
+Publishing professionals
+
+
+1.2 Core Mission
+Transform unstructured text documents into actionable vocabulary intelligence through intelligent extraction, enrichment, visualization, and comparative analysis—enabling users to understand, learn, and leverage vocabulary patterns from diverse sources.2. VISUAL DESIGN PHILOSOPHY2.1 Design Aesthetic: "Modern Academic Luxury"
+
+Overall tone: Professional, sophisticated, trustworthy, yet innovative
+Feel: Like a high-end research dashboard meets modern SaaS application
+Color Palette:
+
+Primary: Deep Navy Blue (#1A2a4A) - Trust, professionalism, intelligence
+Secondary: Vibrant Teal/Cyan (#00D9FF) - Modern, energetic, clarity
+Accent: Warm Gold (#FFB84D) - Sophistication, highlighting key data
+Success: Emerald Green (#10B981) - Positive actions, completion
+Alert: Coral Red (#FF6B6B) - Warnings, errors (softer than standard red)
+Neutral: Slate Gray (#64748B) - Secondary text, borders
+Background: Off-white with subtle gradient (#F8FAFC to #F1F5F9)
+
+
+2.2 Typography Strategy
+
+Display Font: "Georgia" or "Playfair Display" - Elegant, authoritative headers
+Body Font: "Segoe UI" or "Lato" - Clean, highly readable for tables and data
+Monospace: "Fira Code" or "Monaco" - For word displays and technical elements
+Font hierarchy: Clear distinction between H1 (28px), H2 (22px), H3 (18px), body (14-16px)
+2.3 Visual Principles
+
+Data visualization: Charts with smooth animations, hover interactions showing detailed tooltips
+Micro-interactions: Buttons with subtle hover effects, smooth transitions on all interactive elements
+Depth & Layering: Strategic use of shadows, glass-morphism cards, layered information density
+Whitespace: Generous spacing between sections; breathing room for cognitive processing
+Accessibility: High contrast ratios, clear iconography, alternative text for all visuals
+3. APPLICATION ARCHITECTURE & STRUCTURE3.1 Main Dashboard Layout (6 Major Sections)A. Top Navigation Bar (Sticky Header)
+
+Left side: LEXICON MASTER logo + app icon
+Center: Current project name | Processing status indicator
+Right side:
+
+Quick stats badge (words extracted, files processed)
+Theme toggle (Light/Dark mode)
+Settings icon
+User profile/account dropdown
+Help & documentation link
+
+
+B. Left Sidebar (Collapsible Navigation)
+
+Main menu sections:
+
+Dashboard (home view)
+New Extraction (start new project)
+My Projects (saved extractions with thumbnails)
+Analysis Hub (view analytics and comparisons)
+Learning Mode (flashcards, quizzes)
+Export Center (manage exports)
+Settings (preferences, stop words, APIs)
+Help & Tutorials (documentation)
+
+
+
+Sidebar features:
+
+Collapse/expand toggle
+Recent projects quick access (last 5)
+Notifications bell with badge count
+Recent activity feed
+
+
+C. Main Content Area
+
+Dynamic content zones based on user navigation
+Responsive grid layout (adapts to different screen sizes)
+Card-based organization for different data types
+Modal overlays for detailed views without page navigation
+D. Right Sidebar (Context Panel - Optional)
+
+Active only during extraction/analysis:
+
+Real-time processing metrics
+API call status
+File upload progress
+Quick tips and suggestions
+Word preview/sample
+
+
+E. Footer
+
+Left: Version number, last updated timestamp
+Center: Copyright, privacy policy, terms of service links
+Right: Feedback button, bug report, feature request
+4. WORKFLOW STAGES WITH DETAILED INTERFACE4.1 STAGE 1: PROJECT INITIALIZATIONScreen 1.1: Welcome Dashboard
+Visual Elements:
+
+Hero section with animated gradient background
+Brief animated explainer (5-second loop)
+Three prominent action buttons
+Recent projects carousel (if user has projects)
+Quick-start tips section
+Components:
+
+Welcome message personalized to user
+"New Extraction" CTA button (prominent, animated)
+"View Recent Projects" card grid
+"Quick Tutorial" video embed (2-3 minutes)
+Statistics about the app usage (if applicable)
+Interactive Features:
+
+Hover effects on project cards revealing metadata
+Smooth scroll to sections
+Animated counter showing total vocabularies created
+Screen 1.2: Language Selection (Step 1)
+Layout: Full-width modal or centered cardDesign Elements:
+
+Large, interactive toggle buttons with clear visual states
+Icon representations (🇬🇧 for English, 🇧🇩 for Bangla, 🌍 for Both)
+Description text under each option
+Selection indicator with checkmark animation
+Progress indicator showing "Step 1 of 5"
+Options:
+
+"English Only"
+
+Card with blue accent
+Icons showing English-specific features
+Description: "Extract and analyze English vocabulary exclusively"
+
+
+
+"Bangla Only"
+
+Card with gold accent
+Icons showing Bangla-specific features
+Description: "Extract and analyze Bengali vocabulary exclusively"
+
+
+
+"English & Bangla (Bilingual)"
+
+Card with teal accent
+Dual-language icons
+Description: "Extract and analyze mixed-language content"
+
+
+Interactive Features:
+
+Radio button selection
+Hover state changes card shadow and background
+Selected state shows animated checkmark
+Tooltip on hover explaining language processing differences
+4.2 STAGE 2: SOURCE INFORMATION & FILE UPLOADScreen 2.1: Source Information Form (Step 2)
+Layout: Left panel (form) + Right panel (preview/guidelines)Form Fields:
+
+Source Type Dropdown (required)
+
+Options: Newspaper, Magazine, Journal, Blog, Book, Website, Academic Paper, Other
+Changes icon and form suggestions dynamically
+
+
+
+Source Name (required, text input)
+
+Placeholder: "e.g., The Daily Star, Nature Magazine"
+Auto-suggest dropdown from common sources
+Validation: 3-100 characters
+
+
+
+Published Date (required, date picker)
+
+Calendar interface with keyboard support
+Default: Today's date
+Validation: Cannot be future date
+
+
+
+Day of Week (auto-populate from date)
+
+Disable/read-only field
+Shows: "Monday, January 15, 2024"
+
+
+
+Article/Section Title (optional, text input)
+
+Placeholder: "e.g., Climate Change Report"
+
+
+
+Category/Topic (optional, multi-select dropdown)
+
+Options: Politics, Science, Technology, Business, Sports, Entertainment, Health, Education, Other
+Allows custom category input
+
+
+
+Author/Contributor (optional, text input)
+Edition/Issue Number (optional, text input)
+Article URL (optional, URL input)
+
+Shows protocol suggestion (https://)
+
+
+
+Notes/Description (optional, text area)
+
+200-character limit counter
+
+
+Right Panel - Guidelines:
+
+Example filled form
+Field descriptions
+Link to "Source Info Best Practices"
+Character count indicators
+Visual Features:
+
+Form validation with inline error messages (red underline + tooltip)
+Field requirements indicated with asterisk (*)
+Progress bar showing form completion percentage
+"Save as Template" option for frequently used sources
+Screen 2.2: File Upload Interface (Step 3)
+Layout: Large central upload zone + file list belowMain Upload Zone:
+
+Drag & Drop Area:
+
+Large, highlighted rectangle with dashed border (teal color)
+Upload icon (animated on hover)
+Text: "Drag and drop files here or click to browse"
+Sub-text: "Supported formats: PDF, DOCX, TXT, DOC, XLSX, EPUB"
+File size limitations shown: "Max 50MB per file, 500MB total"
+
+
+
+File Type Icons:
+
+Visual indicators for each format (PDF=red, DOCX=blue, TXT=gray, etc.)
+
+
+File Queue Management:
+
+Files Added Section:
+
+Card grid or list showing each file
+File preview thumbnail (if applicable)
+File name, size, format icon
+Individual file options:
+
+View/Preview button (if text-based)
+Remove button (X icon)
+Move up/down buttons (reorder processing order)
+
+
+Total file count badge
+Total combined size indicator
+
+
+Upload Enhancements:
+
+Progress bars per file:
+
+Shows upload progress (0-100%)
+File status: "Uploading," "Processing," "Complete," "Error"
+
+
+
+Validation feedback:
+
+Real-time file format validation
+File size warnings (if close to limit)
+Duplicate file detection with warning
+
+
+Advanced Options (Collapsible Section):
+
+OCR for scanned PDFs - Toggle to enable OCR processing
+Language detection - Auto-detect language vs. use selected language
+Preserve formatting - Checkbox for DOCX files
+Skip images - Option to skip image content in PDFs
+Custom preprocessing - Advanced regex patterns for power users
+Interactive Features:
+
+Hover over files shows quick actions menu
+Drag files within list to reorder
+Double-click file to open preview modal
+Drop files from desktop
+Click browse button to open file selector
+4.3 STAGE 3: PROCESSING & PROGRESSScreen 3.1: Real-Time Processing Dashboard
+Layout: Full-width processing view with live metricsMain Processing Panel:
+
+Progress Ring (Circular):
+
+Large animated donut chart
+Center text: "35% Complete" or "2 of 5 files processed"
+Color: Gradient from teal to gold
+Animated rotation
+
+
+
+Processing Timeline:
+
+Vertical timeline showing stages:
+
+✓ Language Detection (Complete)
+⧖ Text Extraction (In Progress - animated spinner)
+○ Stop Word Filtering (Pending)
+○ Frequency Analysis (Pending)
+○ API Enrichment (Pending)
+
+
+Each stage shows status badge and estimated time remaining
+
+
+
+Real-Time Metrics Panel:
+
+Words Extracted: Live counter (animated number increases)
+Unique Words Found: Counter showing deduplication
+Current Processing Speed: "2,400 words/sec"
+Estimated Time Remaining: "45 seconds"
+API Calls Made: "234 / 347" with success rate percentage
+Files Processed: Progress "2 / 5" with green bar
+
+
+File Processing List:
+
+Accordion-style list showing each file
+File name, format, size
+Processing status: "Pending" | "Processing" | "Complete" | "Error"
+Individual progress bar
+Expand option to see extracted words preview from that file
+Right Sidebar (Context Panel):
+
+Tips Section:
+
+"Processing takes longer for PDFs with images"
+"API enrichment is automatic for English words"
+"You can view results while processing continues"
+
+
+Cancel/Pause buttons (with confirmation dialog)
+Log viewer - Expandable section showing processing logs
+Visual Effects:
+
+Smooth animations on all counters
+Pulsing spinner on current stage
+Color changes based on processing status
+Success/error indicators with icons
+Auto-Advance Feature:
+
+Once processing reaches 100%, automatically transition to results view
+Option to keep this view open for monitoring
+4.4 STAGE 4: RESULTS & ANALYTICS DASHBOARDScreen 4.1: Overview Tab (Default Results View)
+Layout: Grid-based dashboard with multiple widgetsA. Top KPI Cards (Row 1):
+
+4 prominent metric cards in grid:
+
+Total Unique Words
+
+Large number in teal
+Icon:📚
+Sub-text: "From 347 occurrences"
+Trend indicator: "↑ 12% vs. last project"
+
+
+
+Average Word Frequency
+
+Number with 1 decimal place
+Icon: 📊
+Sub-text: "Times each word appears"
+Mini chart showing distribution
+
+
+
+Processing Time
+
+Time display: "2m 34s"
+Icon: ⏱️
+Sub-text: "Faster than 78% of users"
+Comparison bar
+
+
+
+API Enrichment Rate
+
+Percentage: "92%"
+Icon: ✓
+Sub-text: "Words with definition"
+Status indicator
+
+
+B. Vocabulary Summary (Row 2, Full Width):
+
+Summary Stats Box:
+
+Language(s) analyzed
+Source name and date
+Total files processed
+Extraction timestamp
+All metadata from Step 2 displayed
+
+
+Quick Action Buttons:
+
+"View Full List"
+"Download Results"
+"Start New Extraction"
+"Analyze Comparison"
+
+
+C. Visualizations Section (Row 3-4):
+Word Frequency Distribution Chart (Left - 50% width)
+
+Bar chart showing top 20 words and their frequencies
+X-axis: Word names
+Y-axis: Frequency count
+Interactive: Hover shows exact count
+Click bar to expand word detail view
+Color: Gradient from teal to gold
+Animation: Bars grow from bottom on load
+
+
+
+Word Length Distribution (Right - 50% width)
+
+Histogram showing word lengths (3-20+ characters)
+Bell curve overlay showing statistical distribution
+Interactive: Hover shows word count for each length
+Useful for understanding vocabulary complexity
+
+
+
+Language Distribution (Left - 50% width, only for bilingual)
+
+Pie chart: English vs. Bangla word split
+Shows percentages
+Donut style with legend
+Clickable segments to filter by language
+
+
+
+Part of Speech Distribution (Right - 50% width)
+
+Horizontal bar chart: Nouns, Verbs, Adjectives, Adverbs, etc.
+Shows count for each category
+Color-coded by category
+Useful for understanding text structure
+
+
+D. Time Series Analysis (Row 5, Full Width)
+
+Cumulative Word Extraction Timeline:
+
+Line chart showing how vocabulary grows over processing stages
+X-axis: Processing stage
+Y-axis: Cumulative unique words found
+Multiple lines if multiple files
+Shows efficiency of extraction
+
+
+Interactive Features:
+
+Hover on metrics shows mini tooltip with additional context
+Click metric to expand detail view
+Toggle between "All Data" and "Top 50" view
+Download individual charts as PNG
+Screen 4.2: Vocabulary List Tab
+Layout: Advanced data table with sorting, filtering, and inline actionsTable Structure:Column Headers (Sortable, clickable):
+ColHeaderDescriptionAS.NoSerial numberBWordThe extracted wordCFrequencyCount of occurrencesDWord LengthNumber of charactersEPart of SpeechNoun, Verb, Adj, etc.FDefinitionPrimary definitionGSynonymsRelated wordsHAntonymsOpposite wordsIExampleUsage example from sourceJStatusAPI enrichment statusTable Features:
+Sorting Capabilities:
+
+Click column header to sort A-Z or Z-A
+Click again to reverse order
+Visual indicator (↑ or ↓) on sorted column
+Multi-column sort with Shift+Click
+
+
+
+Advanced Filtering Panel (Above Table):
+
+Search Box: Real-time search by word
+Frequency Filter: Range slider (Min: 1, Max: highest frequency)
+Word Length Filter: Min-Max character length
+Part of Speech Filter: Multi-checkbox (Noun, Verb, Adj, Adv, etc.)
+Language Filter: English, Bangla, Both (if bilingual)
+API Status Filter: Enriched, Pending, Error
+Clear Filters button
+Filter count badge showing active filters
+
+
+
+Table Display Options:
+
+Rows Per Page: Dropdown (10, 25, 50, 100, All)
+View Mode: List view or Density toggle (Compact/Normal/Comfortable)
+Column Visibility: Toggle button showing checkboxes for each column
+Export Table: Button to export visible data as CSV/XLSX
+
+
+
+Pagination:
+
+Previous/Next buttons
+Page indicator: "Page 1 of 12"
+Jump to page input field
+"Show all" option with warning about performance
+
+
+
+Row Actions (Right side of each row):
+
+Expand Icon: Click to reveal full word details
+Copy Word: Copy to clipboard with confirmation
+Learn: Open word in learning mode (flashcard)
+Compare: Add word to comparison basket
+Flag: Mark for later review
+More Options (...): Additional actions menu
+
+
+Inline Word Detail Expansion:
+
+Click expand icon, row expands showing:
+
+Full definition with pronunciation (if available)
+All synonyms with similarity percentage
+All antonyms
+Example sentences from original source
+Etymology (word origin)
+Usage frequency in English corpus
+Related words (semantic network)
+Add to flashcards button
+Back to compact view button
+
+
+Table Row Styling:
+
+Alternating row colors for readability (white + light gray)
+Hover state: Subtle background color change (light teal)
+High-frequency words highlighted with light gold background
+Low-frequency words (appearing once) marked with subtle icon
+Empty State:
+
+If no matches after filtering: "No words match your filters. Try adjusting your search."
+Reset filters button
+Visual suggestions
+Performance Considerations:
+
+Virtual scrolling for large datasets (1000+ rows)
+Progressive loading of enrichment data (API calls happen in background)
+Search debounced (300ms) to prevent excessive re-renders
+Screen 4.3: Detailed Analytics Tab
+Layout: Comprehensive analytics dashboard with 8-12 visualization widgetsA. Vocabulary Complexity Metrics (Row 1):
+Flesch-Kincaid Grade Level (Card)
+
+Large number: "8.5"
+Description: "Text requires ~8.5 years of education to understand"
+Color coding: Green (easy), Yellow (medium), Red (difficult)
+Comparison to national average
+
+
+
+Lexical Diversity Score (Card)
+
+Percentage: "78%"
+Description: "Unique words vs. total words"
+Interpretation guide below
+Higher is better indicator
+
+
+
+Average Word Frequency Rank (Card)
+
+Number: "2,450"
+Description: "Average position in English word frequency list"
+Lower = more common words
+
+
+
+Vocabulary Richness Index (Card)
+
+Score: "82/100"
+Description: "Overall vocabulary sophistication"
+Gauge-style visual representation
+
+
+B. Detailed Distribution Charts (Row 2-3):
+Part of Speech Detailed Breakdown (50% width)
+
+Horizontal stacked bar chart
+Categories: Nouns, Verbs, Adjectives, Adverbs, Prepositions, etc.
+Shows both count and percentage
+Interactive: Click category to filter vocabulary table
+
+
+
+Word Frequency Percentile Chart (50% width)
+
+Shows distribution curve
+Marks 25th, 50th, 75th, 95th percentiles
+Highlights where median/mean fall
+Statistical annotations
+
+
+
+Zipfian Distribution Validation (50% width)
+
+Scatter plot showing Zipf's law compliance
+X-axis: Word rank
+Y-axis: Frequency (log scale)
+Red line: Perfect Zipfian distribution
+Blue dots: Actual data
+Explains natural language patterns
+
+
+
+Vocabulary Growth Over Files (50% width, if multiple files)
+
+Line chart showing cumulative unique words for each file processed
+Bars showing new words discovered per file
+Helps identify which sources are most vocabulary-rich
+
+
+C. Comparative Analysis Section (Row 4):
+Difficulty Spectrum Heatmap:
+
+Vertical bar showing word difficulty distribution
+Color gradient: Green (beginner) → Yellow (intermediate) → Red (advanced)
+Percentage distribution shown
+Click sections to filter vocabulary
+
+
+
+Word Frequency Tier Distribution:
+
+Pie chart dividing words into tiers:
+
+High frequency (appearing 10+ times)
+Medium frequency (3-9 times)
+Low frequency (appearing 1-2 times)
+
+
+Percentages for each tier
+Recommendations on which tier to focus on for learning
+
+
+D. Statistical Summary Box (Row 5):
+
+Mean word frequency
+Median word frequency
+Standard deviation
+Mode (most common frequency)
+Range (max - min)
+Quartile analysis
+E. Advanced Metrics Panel (Row 6, Collapsible):
+
+Hapax Legomena: Words appearing only once
+Hapax Dislegomena: Words appearing exactly twice
+Vocabulary Type-Token Ratio (TTR): Measure of vocabulary diversity
+Simpson's Diversity Index: Statistical diversity measure
+Unique Word Ratio: Percentage of unique words vs. total
+Interactive Features:
+
+Hover on charts for detailed tooltips
+Click on chart sections to filter vocabulary table
+Toggle between absolute numbers and percentages
+Select specific metrics to display in custom view
+Comparison line showing "Average for similar texts" (if data available)
+Screen 4.4: Enrichment Status Tab
+Layout: Shows API enrichment progress and quality metricsA. Enrichment Summary Cards:
+
+Total Words Enriched: 287 / 312 (92%)
+Definitions Added: 287 (green checkmark)
+Synonyms Added: 276 (yellow warning for gaps)
+Antonyms Added: 198 (orange warning, not all words have antonyms)
+Examples Added: 263 (green checkmark)
+B. Enrichment Status Table:
+
+List of all words with enrichment status indicators
+Columns: Word | Definition | Synonyms | Antonyms | Examples | Status
+Status badges: ✓ Complete | ⧖ Pending | ✗ Error | — N/A
+Filter by status
+Retry button for failed enrichments
+Manual override option (edit cell to add/modify data)
+C. API Health Metrics:
+
+Total API calls made: 312
+Successful calls: 287 (92%)
+Failed calls: 15 (4%)
+Rate-limited calls: 10 (3%)
+Average response time: 245ms
+Cache hit rate: 68%
+D. Missing Data Indicators:
+
+Words without definitions
+Words without synonyms
+Words without antonyms
+List with options to manually add missing data
+4.5 STAGE 5: ADVANCED FEATURES & TOOLSScreen 5.1: Word Comparison & Analysis Tool
+Layout: Split-screen or modal viewComparison Interface:
+
+Select words to compare:
+
+Search box to find words
+Multi-select checkboxes
+Or select from frequency-ranked list
+Add up to 10 words for comparison
+
+
+
+Comparison Display:
+
+Side-by-side card view for each word
+Shows: Definition, Synonyms, Antonyms, Example, Frequency, Part of Speech
+Visual similarity score between words (if synonyms share characteristics)
+Shared synonyms/antonyms highlighted
+Semantic relationship visualization (network graph connecting related words)
+
+
+
+Comparative Analytics:
+
+Frequency comparison bar chart
+Word length comparison
+Complexity score comparison
+Linguistic similarity matrix (if multiple languages)
+
+
+Export Comparison:
+
+Generate comparison report as PDF
+Create custom study guide from selected words
+Screen 5.2: Vocabulary Flashcard System
+Layout: Card-based learning interfaceFlashcard Features:
+
+Automatic Card Generation:
+
+Create flashcards from extracted vocabulary
+Front: Word | Back: Definition, Synonyms, Antonyms, Example
+Customizable card content
+
+
+
+Study Modes:
+
+Spaced Repetition: Algorithm-based review scheduling
+Mastery Mode: Quiz on definitions
+Speed Round: Rapid-fire word matching (3 seconds per word)
+Writing Practice: Type synonyms/antonyms from memory
+Audio Pronunciation: Listen and repeat mode
+
+
+
+Progress Tracking:
+
+Mastery level per word (0-100%)
+Cards categorized: Not Started, Learning, Reviewing, Mastered
+Daily practice goal (customizable)
+Streak counter
+Retention rate chart
+
+
+
+Interactive Card Display:
+
+Flip animation on card click
+Swipe left (forgot) / right (remember)
+Star icon to flag difficult words
+Audio icon to hear pronunciation
+Navigation: Previous/Next buttons or swipe gestures
+
+
+
+Statistics Dashboard:
+
+Total cards: 287
+Cards mastered: 142 (50%)
+Cards in progress: 89 (31%)
+Cards not started: 56 (19%)
+Study time today: 23 minutes
+Session streak: 12 days
+
+
+Screen 5.3: Interactive Quiz Module
+Layout: Full-screen quiz interfaceQuiz Types:
+Multiple Choice:
+
+Word shown | 4 definition options
+Immediate feedback (green checkmark / red X)
+Explanation if wrong
+Score tracking
+
+
+
+Matching:
+
+Column A: Words | Column B: Definitions (shuffled)
+Drag-and-drop matching
+Visual feedback for correct/incorrect
+Summary statistics at end
+
+
+
+Fill-in-the-Blank:
+
+Example sentence with blank
+Word bank to choose from
+Or typing input
+Auto-complete suggestions
+
+
+
+Synonym/Antonym Identification:
+
+Word given | Find 3 synonyms from 5 options
+Or find 3 antonyms
+
+
+
+Usage in Context:
+
+Read a sentence with word highlighted
+Choose correct definition based on context
+Multiple meanings may be presented
+
+
+Quiz Features:
+
+Difficulty Levels: Easy, Medium, Hard (based on word frequency)
+Time Limit: Optional countdown timer
+Question Randomization: Random order each attempt
+Progress Bar: Shows questions completed vs. total
+Score Display: Points earned out of total
+Performance Summary:
+
+Accuracy percentage
+Time spent per question average
+Categories mastered vs. weak areas
+Comparison to average score
+
+
+Interactive Elements:
+
+Immediate feedback with explanations
+Option to skip difficult questions
+Keyboard shortcuts (1,2,3,4 for multiple choice)
+Review mode to go back and see explanations
+Save quiz attempt for later review
+Screen 5.4: Word Network Visualization
+Layout: Full-width interactive graphNetwork Features:
+
+Semantic Relationship Visualization:
+
+Each word is a node
+Edges connect: synonyms, related words, similar concepts
+Node size = word frequency
+Node color = part of speech
+Interactive: Click and drag nodes to rearrange
+Hover on node shows full data
+
+
+
+Network Analysis:
+
+Central nodes (words with most connections)
+Clusters of related words (color-coded regions)
+Betweenness centrality (bridge words)
+Degree distribution
+Network density metric
+
+
+
+Interactive Exploration:
+
+Click word to highlight connected neighbors
+Double-click to expand and show 2-hop connections
+Right-click context menu with options:
+
+View detail
+Add to comparison
+Create learning set
+Hide word
+
+
+Zoom in/out with mouse wheel
+Pan with click-and-drag
+Reset view button
+
+
+
+Filtering Options:
+
+Filter by relationship type (synonyms only, semantic relations, etc.)
+Filter by frequency (show only high-frequency words)
+Filter by part of speech
+Show/hide low-connectivity nodes
+Connection strength threshold slider
+
+
+
+Export Options:
+
+Export as image (PNG/SVG)
+Export graph data (JSON)
+Generate community report
+
+
+Screen 5.5: Learning Mode Dashboard
+Layout: Personalized learning hubLearning Dashboard Features:
+Daily Learning Plan:
+
+Today's goal: Review 20 words
+Progress: 12/20 words completed (60%)
+Estimated time remaining: 15 minutes
+Cards due for review: 8
+New cards to learn: 12
+
+
+
+Learning Modes Available (Card Grid):
+
+Flashcard Mode (with daily stats)
+Quiz Mode (with recent scores)
+Word Network Explorer
+Speed Challenge
+Writing Practice
+Pronunciation Practice
+
+
+
+Study Streaks & Achievements:
+
+Current streak: 12 days
+Longest streak: 28 days
+Badges earned:
+
+"First 50 Words" ✓
+"Week Warrior" ✓
+"Quiz Master" (in progress)
+"Pronunciation Expert" (not earned)
+
+
+
+
+
+Performance Analytics:
+
+Learning curve chart (words learned over time)
+Retention rate chart
+Category mastery breakdown
+Comparison to learning goals
+
+
+
+Customization:
+
+Set daily learning goal
+Select learning mode preferences
+Difficulty level preference
+Spaced repetition algorithm settings
+
+
+4.6 STAGE 6: EXPORT & REPORTINGScreen 6.1: Export Center
+Layout: Multi-option export dashboardExport Format Options:
+CSV Export:
+
+Preview table before download
+Customize columns to include
+Delimiter selection (comma, semicolon, tab)
+Include/exclude headers
+File name customization
+Size preview
+Download button
+
+
+
+Excel (.XLSX) Export:
+
+Multiple sheets:
+
+Sheet 1: Source Information (formatted header with metadata)
+Sheet 2: Vocabulary List (main data table)
+Sheet 3: Frequency Analysis
+Sheet 4: Analytics & Charts
+Sheet 5: Processing Log
+
+
+
+
+
+Formatting Options:
+
+Header styling (bold, colored background)
+Conditional formatting on frequency (color gradients)
+Auto-fit column widths
+Frozen header row
+Number format selection
+Include/exclude charts
+
+
+
+Preview: Visual mockup of how Excel will look
+
+PDF Report:
+
+Professional report layout
+Title page with metadata
+Summary statistics
+Top 50 words table
+Visualizations (charts, graphs)
+Analytics summary
+Glossary format (alphabetical word list with definitions)
+Custom branding options (header/footer)
+
+
+
+JSON Export:
+
+Raw data in JSON format
+Useful for developers integrating with other tools
+Formatted/minified option
+Includes metadata and all enrichment data
+
+
+
+Learning Package:
+
+ZIP file containing:
+
+Flashcard data (.json)
+Quiz questions (.json)
+Study guide (PDF)
+Audio pronunciation files (if available)
+
+
+Import into Anki or other spaced-repetition apps
+
+
+
+Comparison Report:
+
+Multi-source comparison in Excel or PDF
+Side-by-side tables
+Venn diagrams showing overlaps
+Unique words per source
+
+
+Export Options Panel:
+
+File Naming:
+
+Auto-generated default: "vocabulary_[SourceName][Date][Language].xlsx"
+Manual rename field
+Auto-include timestamp
+
+
+
+Advanced Options:
+
+Include/exclude metadata
+Include/exclude enrichment data (definitions, synonyms, etc.)
+Include/exclude visualizations (PDF/Excel only)
+Include/exclude usage examples
+Custom filtering (only export high-frequency words, etc.)
+
+
+
+Batch Export:
+
+Export multiple formats simultaneously
+Select formats and download as ZIP
+
+
+Export History:
+
+List of previous exports with timestamps
+Download previous exports
+Delete old exports
+Export settings saved for future use
+Screen 6.2: Report Generation Interface
+Layout: Report builder with previewReport Types:
+Standard Vocabulary Report:
+
+Summary statistics
+Top 50 words by frequency
+Sample definitions
+Usage examples
+Visualizations
+
+
+
+Academic Research Report:
+
+Detailed statistical analysis
+Linguistic metrics
+Comparative analysis framework
+References and methodology
+APA/MLA citation format
+
+
+
+Learning Report:
+
+Personalized learning recommendations
+Vocabulary by difficulty level
+Practice suggestions
+Progress tracking format
+
+
+
+Custom Report:
+
+Drag-and-drop report builder
+Select which sections to include
+Customize layout
+Add branding/headers
+
+
+Report Customization:
+
+Select report type from templates
+Customize title, subtitle, footer
+Add logo/branding
+Select color scheme
+Include/exclude sections
+Sort data as desired
+Add custom sections (notes, etc.)
+Preview:
+
+Live preview of report as it will appear
+Pagination preview
+Responsive layout check
+5. ADVANCED VISUALIZATION FEATURES5.1 Interactive Charts & GraphsChart 1: Word Frequency Distribution
+
+Type: Horizontal bar chart
+Data: Top 20-50 words with their frequencies
+Interactivity:
+
+Hover shows exact count + percentage
+Click bar to filter vocabulary table
+Drag to zoom into specific range
+Toggle log/linear scale for very large ranges
+
+
+Animation: Bars grow from bottom on load with stagger effect
+Color: Gradient from teal to gold based on frequency
+Chart 2: Frequency Distribution Histogram
+
+Type: Histogram with normal distribution curve overlay
+Data: Distribution of word frequencies
+Shows: How many words appear 1 time, 2 times, 3 times, etc.
+Interactivity:
+
+Click bars to see which words fall into that frequency
+Drag selection to zoom
+
+
+Statistical annotations: Mean, median, standard deviation marked
+Chart 3: Vocabulary Growth Curve
+
+Type: Line chart with area fill
+Data: Cumulative unique words over processing timeline
+X-axis: Processing stages or files processed
+Y-axis: Cumulative unique words found
+Interactivity:
+
+Hover shows exact numbers
+Toggle individual file lines on/off
+
+
+Animation: Line draws from left to right on load
+Chart 4: Part of Speech Breakdown
+
+Type: Vertical or horizontal bar chart
+Data: Count of words by part of speech (Noun, Verb, Adj, Adv, etc.)
+Interactivity:
+
+Hover for exact counts
+Click to filter vocabulary table by selected POS
+
+
+Color: Different color for each part of speech category
+Chart 5: Word Length Distribution
+
+Type: Histogram
+Data: Number of words by character length (3-4 chars, 5-6 chars, etc.)
+Shows: Whether vocabulary is short/simple or long/complex
+Interactivity:
+
+Click to filter words of that length
+
+
+Bell curve: Overlay shows statistical distribution
+Chart 6: Language Distribution Pie/Donut Chart
+
+Type: Pie or donut chart (for bilingual projects)
+Data: Percentage of English vs. Bangla words
+Interactivity:
+
+Click segment to filter by language
+Hover for percentages
+
+
+Legend: Clickable to toggle visibility
+Chart 7: Vocabulary Difficulty Spectrum
+
+Type: Horizontal stacked bar chart or heat map
+Data: Distribution across difficulty levels (Beginner, Intermediate, Advanced)
+Color: Green (easy) → Yellow (medium) → Red (difficult)
+Interactivity:
+
+Click sections to filter vocabulary
+Hover for percentages and word counts
+
+
+Chart 8: Word Frequency Rank vs. Actual Frequency (Zipfian Distribution)
+
+Type: Scatter plot with logarithmic axes
+Data: Rank of words (x) vs. their frequency (y)
+Shows: How well data follows Zipf's law (natural language property)
+Red line: Perfect Zipfian distribution for comparison
+Interpretation: Validation of natural language in extracted text
+Chart 9: Cumulative Vocabulary Over Time (Multi-file)
+
+Type: Stacked area chart or line chart
+Data: Which files contribute new vs. repeated vocabulary
+Shows: Diminishing returns as more sources added
+Interactivity:
+
+Toggle individual file lines
+Hover for exact values
+
+
+Chart 10: Semantic Relationship Network Graph
+
+Type: Force-directed graph visualization
+Nodes: Words
+Edges: Synonyms, semantic relationships
+Node size: Proportional to word frequency
+Node color: By part of speech
+Interactivity: Drag nodes, click to expand, right-click for options
+5.2 Data Visualization Best Practices Implemented
+Responsive Design:
+
+Charts adapt to screen size
+Mobile: Smaller charts, vertical stacking
+Desktop: Full-size charts, side-by-side layouts
+
+
+
+Color Accessibility:
+
+Colorblind-safe palettes
+Redundant encoding (color + pattern/shape)
+High contrast for readability
+
+
+
+Interactivity:
+
+Hover tooltips with detailed information
+Click-to-filter integration with data table
+Zoom and pan for large datasets
+Legend toggles
+
+
+
+Animation:
+
+Smooth transitions (300-500ms)
+Load animations (bars growing, lines drawing)
+Micro-interactions (hover effects)
+No animation longer than 1 second
+
+
+
+Clarity:
+
+Clear axis labels with units
+Legends positioned appropriately
+Gridlines for easier reading
+Statistical annotations (mean, median lines)
+
+7. USER INTERFACE COMPONENTS & INTERACTIONS
+7.1 Navigation Components
+Top Navigation Bar
+
+Logo & Brand: LEXICON MASTER with icon
+Project Indicator: Current project name with status badge
+Stats Badge: Quick-view of key metrics (words extracted, files processed)
+Theme Toggle: Light/Dark mode switch with smooth transition
+Notifications: Bell icon with badge count (unread notifications)
+Settings: Gear icon dropdown
+Help: Question mark icon with quick help menu
+User Profile: Avatar with dropdown (account, preferences, logout)
+
+Left Sidebar
+
+Navigation Menu:
+
+Dashboard (home icon)
+New Extraction (plus icon)
+My Projects (folder icon)
+Analysis Hub (chart icon)
+Learning Mode (book icon)
+Export Center (download icon)
+Settings (gear icon)
+Help (question icon)
+
+
+Sidebar Features:
+
+Collapse/expand toggle
+Recent projects list (thumbnails)
+Search projects
+Activity feed
+
+
+
+Breadcrumb Navigation
+
+Shows current location in app hierarchy
+Example: "Dashboard > Projects > Daily Star Analysis > Analytics"
+Each item clickable for quick navigation
+Mobile: Simplified or hidden to save space
+
+
+7.2 Form Components
+Input Fields
+
+Text Input: Standard text fields with placeholder text, error states
+Email Input: Email validation, suggestion on blur
+Date Picker: Calendar widget with keyboard support
+Time Picker: Hour/minute selectors
+Select Dropdown: Categorized options, searchable
+Multi-Select: Checkboxes or tags, add/remove functionality
+Text Area: Large text input with character counter
+Range Slider: Min/max selection for filtering
+Toggle Switch: On/off states with animation
+
+Form Features:
+
+Real-time validation: Instant feedback on input
+Error messages: Clear, specific error descriptions
+Helper text: Under fields to guide user input
+Required indicators: Asterisk (*) for mandatory fields
+Progress indicator: Shows form completion %
+Save templates: Store frequently used form data
+
+
+7.3 Button Components
+Button Styles:
+
+Primary Button (CTA - Call To Action)
+
+Color: Teal/Cyan gradient
+Text: White, bold
+State: Default, Hover, Active, Disabled
+Hover effect: Slight scale increase + glow shadow
+
+
+Secondary Button
+
+Color: Outlined border, transparent fill
+State: Default, Hover, Active, Disabled
+Hover effect: Subtle background fill
+
+
+Tertiary Button
+
+Color: Text-only (minimal style)
+Used for less important actions
+
+
+Danger Button
+
+Color: Coral red
+Used for destructive actions (delete, reset)
+
+
+Success Button
+
+Color: Emerald green
+Used for positive confirmations
+
+
+
+Button States:
+
+Default: Normal state, interactive
+Hover: Slight color change, scale, shadow
+Active/Pressed: Darker shade, inset shadow
+Disabled: Grayed out, no pointer cursor
+Loading: Spinner animation, text changes to "Processing..."
+
+Button Sizes:
+
+Large: Full-width or 1/3 width (primary CTAs)
+Medium: Standard size (most buttons)
+Small: Compact, for secondary actions
+Icon-only: Square buttons with just icon
+
+
+7.4 Card Components
+Data Cards:
+
+Metric Card: Displays single KPI (number + icon + description)
+File Card: Shows file info (name, size, preview, actions)
+Project Card: Summary of project (thumbnail, stats, actions)
+Word Card: Individual word with definition preview
+Source Card: Source information and metadata
+
+Card Features:
+
+Hover state: Lift effect (shadow increase), slight scale
+Clickable areas: Visual feedback on interactive elements
+Action menu: Three-dot menu for additional options
+Status badges: Indicator showing state (new, processing, complete, error)
+Animations: Smooth entrance animations on load
+
+
+7.5 Modal & Dialog Components
+Modal Types:
+
+Information Modal:
+
+Displays information/confirmation
+Single "OK" button
+Can be dismissed with X or outside click
+
+
+Confirmation Modal:
+
+Requires user confirmation
+Two buttons: "Cancel" and "Confirm"
+Destructive confirmations use warning color
+
+
+Form Modal:
+
+Contains form inputs
+"Submit" and "Cancel" buttons
+Form validation before submit
+
+
+Detailed View Modal:
+
+Shows expanded/detailed information
+Can be scrolled
+Close button (X) at top
+
+
+
+Modal Features:
+
+Backdrop: Darkened background preventing interaction outside
+Animation: Smooth fade-in and slide-up on appear
+Keyboard support: ESC key closes modal
+Focus trap: Keyboard focus stays within modal
+Responsive: Adapts to mobile (full-screen or center-dialog)
+
+
+7.6 Table & Data Grid Components
+Table Features:
+
+Sortable columns: Click header to sort ascending/descending
+Resizable columns: Drag to adjust column width
+Frozen header: Sticky header on scroll
+Row selection: Checkboxes for multi-row selection
+Inline actions: Row-level action buttons (expand, copy, delete, etc.)
+Row grouping: Group by category/characteristic
+Pagination: Previous/Next, page jump, rows-per-page selector
+Search/Filter: Text search and advanced filters
+
+Table States:
+
+Empty state: Helpful message when no data
+Loading state: Skeleton loaders while fetching
+Error state: Error message with retry option
+Sorted state: Visual indicator of sort direction
+
+
+7.7 Notification & Feedback Components
+Toast Messages:
+
+Success toast: Green background, checkmark icon
+
+"Vocabulary extracted successfully!"
+
+
+Error toast: Red background, X icon
+
+"Error processing file. Please try again."
+
+
+Warning toast: Yellow background, warning icon
+
+"File processing may take longer than expected."
+
+
+Info toast: Blue background, info icon
+
+"Processing in background. You can continue working."
+
+
+
+Toast Features:
+
+Auto-dismiss: Disappears after 4-5 seconds (can be changed)
+Dismissible: Manual close button (X)
+Stacking: Multiple toasts stack vertically
+Action buttons: Toast can have action button (e.g., "Undo")
+Progress indicator: Small progress bar showing time remaining
+
+Loading States:
+
+Spinner: Rotating circular animation for general loading
+Progress bar: Linear progress indicator with percentage
+Skeleton screens: Placeholder layout while loading
+Pulse animation: Subtle pulsing to indicate loading
+
+Empty States:
+
+Illustration: Relevant graphic (e.g., empty vocabulary list)
+Message: Friendly explanation
+CTA button: Suggestion to take action
+Examples: Show what populated state looks like
+
+
+8. RESPONSIVE DESIGN & MOBILE EXPERIENCE
+8.1 Breakpoints
+
+Mobile: 320px - 640px (small phone to large phone)
+Tablet: 641px - 1024px
+Desktop: 1025px - 1920px
+Ultra-wide: 1921px and above
+
+8.2 Mobile Optimizations
+
+Sidebar: Collapse to hamburger menu
+Tables: Stack to single column or scrollable cards
+Charts: Reduce size, simplify visualization
+Buttons: Larger touch targets (48px minimum)
+Forms: Single column layout
+Navigation: Bottom tab bar for primary actions
+
+8.3 Touch Interactions
+
+Tap targets: Minimum 48x48px
+Swipe gestures: Swipe left/right for actions
+Long-press: For context menus
+Pinch-to-zoom: For detailed views
+Double-tap: For expanding/collapsing
+
+
+9. ACCESSIBILITY & INTERNATIONALIZATION
+9.1 Accessibility Features (WCAG 2.1 AA Compliance)
+
+Keyboard Navigation: All features accessible via keyboard
+Screen Reader Support: Proper ARIA labels and semantic HTML
+Color Contrast: 4.5:1 ratio for text, 3:1 for graphics
+Focus Indicators: Clear visible focus states
+Alternative Text: Descriptions for images and icons
+Error Messages: Clear, specific, helpful
+Skip Links: Jump to main content
+Accessible Forms: Proper labels, help text, error messaging
+
+9.2 Internationalization (i18n)
+
+Language Support:
+
+English (primary)
+Bengali (Bangla)
+Spanish, French, German (future)
+
+
+Localization:
+
+Date/time formats per locale
+Number formatting (decimal separators)
+Text direction (LTR for English, RTL for Arabic/Bangla if needed)
+Currency display
+Unit measurements
+
+
+
+9.3 RTL (Right-to-Left) Considerations
+
+Layout flipping for RTL languages
+Icon position adjustments
+Text alignment
+Form field direction
+
+
+10. PERFORMANCE & TECHNICAL SPECIFICATIONS
+10.1 Performance Targets
+
+Page Load Time: < 2 seconds (initial load)
+Interaction Response: < 100ms (button click to action start)
+Animation Frame Rate: 60 FPS (smooth animations)
+Bundle Size: < 500KB (initial JavaScript)
+API Response Time: < 1 second per word enrichment
+Search/Filter Response: < 300ms (debounced)
+Export Generation: < 30 seconds for 1000+ words
+
+10.2 Data Storage & Caching
+
+Local Storage: Cache API responses, user preferences
+IndexedDB: Store full extraction projects locally
+Session Storage: Temporary UI state
+Service Worker: Offline support, background sync
+Cache Invalidation: Smart invalidation on data updates
+
+10.3 Browser Support
+
+Chrome: Version 90+
+Firefox: Version 88+
+Safari: Version 14+
+Edge: Version 90+
+Mobile browsers: Safari iOS 12+, Chrome Android 90+
+
+
+11. SECURITY & PRIVACY
+11.1 Data Security
+
+End-to-End Encryption: For optional cloud storage
+Secure API Calls: HTTPS only
+No tracking: Privacy-focused, no analytics unless opted-in
+GDPR Compliance: Right to deletion, data export options
+Two-Factor Authentication: Optional for accounts
+
+11.2 Privacy Features
+
+Client-side processing: Most processing happens in browser
+Minimal server usage: Only API calls and optional backups
+Data deletion: Users can clear all local data anytime
+Privacy policy: Clear, transparent terms
+No third-party sharing: User data not shared or sold
+
+
+12. FILE UPLOAD & PROCESSING SPECIFICATIONS
+12.1 Supported File Types & Handling
+FormatMax SizeProcessing MethodNotesTXT50MBDirect text extractionEncoding auto-detectionPDF50MBText extraction + OCR for scannedImage PDFs processed with OCRDOCX50MBZIP parsing, XML extractionPreserves formatting metadataDOC50MBConversion to DOCX, then extractionLegacy supportXLSX/XLS50MBCell content extractionProcesses all sheetsEPUB50MBUnzip and HTML parsingE-book content extractionHTML50MBDOM parsing, script removalCleans ads/navigation
+12.2 Batch Processing Rules
+
+Total upload limit: 500MB per session
+Concurrent processing: 3-5 files simultaneously
+Queue management: Sequential queuing for remaining files
+Error handling: Skip problematic files, continue processing
+Notification: Alert user when processing completes
+
+
+13. WORKFLOW SCENARIOS & USER JOURNEYS
+13.1 Scenario 1: Student Learning English Vocabulary
+
+Student uploads 3 news articles about technology
+Selects "English Only" mode
+Extracts ~500 unique words
+Filters to "Advanced" difficulty level words
+Creates flashcards for top 100 words
+Uses spaced repetition system to study daily
+Completes daily quizzes to reinforce learning
+Tracks progress with mastery percentage
+Exports vocabulary list as study guide
+
+13.2 Scenario 2: Researcher Analyzing Newspapers
+
+Researcher uploads 20 newspaper articles from different sources
+Selects "English Only" mode
+Enters metadata for each source (newspaper, date, author)
+Extracts vocabulary with frequency analysis
+Uses analytics dashboard to understand vocabulary patterns
+Compares vocabulary across publications
+Identifies trending terms and emerging vocabulary
+Exports comparison report with visualizations
+Generates PDF research report with findings
+
+13.3 Scenario 3: Content Creator (Bilingual)
+
+Content creator uploads articles in both English and Bengali
+Selects "English & Bangla" mode
+Extracts vocabulary from mixed-language content
+Analyzes language distribution and vocabulary gaps
+Uses word network visualization to find semantic relationships
+Identifies unique vocabulary per language
+Exports data for translation/localization purposes
+Shares vocabulary list with translation team
+Creates glossary for future content consistency
+
+13.4 Scenario 4: ESL Teacher
+
+Teacher uploads course materials (textbooks, articles, assignments)
+Extracts vocabulary corpus
+Uses analysis to understand vocabulary level and complexity
+Generates customized learning materials based on extracted vocab
+Creates quizzes and flashcards for students
+Tracks student performance on assessments
+Provides personalized learning recommendations
+Shares results with students via shareable links
+Analyzes learning progress over semester
+
+19. CONCLUSION
+LEXICON MASTER is positioned to be the definitive vocabulary intelligence platform, combining sophisticated text analysis with engaging learning experiences. By focusing on user experience, advanced visualizations, and vocabulary-specific features, the application will serve diverse users from language learners to academic researchers.
+The combination of professional dashboard design, intelligent word extraction, rich visualizations, and integrated learning tools creates a unique value proposition in the vocabulary learning and analysis space.
+Key Differentiators:
+✅ Advanced visualization & analytics
+✅ Multi-language support (English & Bangla)
+✅ Integrated learning system (flashcards, quizzes, spaced repetition)
+✅ Professional research-grade analysis
+✅ Collaborative features
+✅ Accessible, intuitive interface
+✅ Multiple export formats
+✅ Privacy-focused, offline-capable

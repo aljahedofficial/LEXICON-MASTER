@@ -103,7 +103,13 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <div className="text-center">
+          <div className="flex flex-col gap-3 items-center">
+            <Link
+              href="/auth/register"
+              className="w-full flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            >
+              Create New Account
+            </Link>
             <Link
               href="/auth/register"
               className="text-sm text-primary hover:text-primary-dark"

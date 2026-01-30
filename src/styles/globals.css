@@ -72,3 +72,5 @@
   .theme-aware {
     background-color: var(--color-bg);
     color: var(--color-font);
+  }
+}

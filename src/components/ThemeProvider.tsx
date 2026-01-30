@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { THEMES, ThemeConfig, DEFAULT_THEME } from '@/lib/themes'
 
 type Theme = 'light' | 'dark' | 'system'
 
@@ -8,6 +9,8 @@ interface ThemeContextType {
   theme: Theme
   setTheme: (theme: Theme) => void
   resolvedTheme: 'light' | 'dark'
+  colorTheme: ThemeConfig
+  setColorTheme: (theme: ThemeConfig) => void
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
@@ -15,12 +18,22 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('system')
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light')
+  const [colorTheme, setColorTheme] = useState<ThemeConfig>(DEFAULT_THEME)
 
   useEffect(() => {
     // Load theme from localStorage
     const storedTheme = localStorage.getItem('theme') as Theme
     if (storedTheme) {
       setTheme(storedTheme)
+    }
+
+    // Load color theme from localStorage
+    const storedColorTheme = localStorage.getItem('colorTheme')
+    if (storedColorTheme) {
+      const foundTheme = THEMES.find((t) => t.id === storedColorTheme)
+      if (foundTheme) {
+        setColorTheme(foundTheme)
+      }
     }
   }, [])
 
@@ -49,6 +62,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  // Apply color theme
+  useEffect(() => {
+    const root = window.document.documentElement
+    root.style.setProperty('--color-bg', colorTheme.background)
+    root.style.setProperty('--color-font', colorTheme.font)
+    localStorage.setItem('colorTheme', colorTheme.id)
+  }, [colorTheme])
+
   // Listen to system theme changes
   useEffect(() => {
     if (theme !== 'system') return
@@ -67,7 +88,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme])
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme, colorTheme, setColorTheme }}>
       {children}
     </ThemeContext.Provider>
   )

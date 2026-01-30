@@ -31,6 +31,10 @@
   --color-warning: #ECC94B;
   --color-error: #F56565;
   --color-info: #4299E1;
+
+  /* Custom Theme Colors (defaults) */
+  --color-bg: #FFFFFF;
+  --color-font: #111111;
 }
 
 [data-theme='dark'] {
@@ -43,6 +47,28 @@
 
 @layer base {
   body {
-    @apply bg-[var(--color-bg-primary)] text-[var(--color-text-primary)];
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Apply theme colors to common elements */
+  input, textarea, select {
+    background-color: var(--color-bg);
+    color: var(--color-font);
+  }
+
+  button {
+    color: var(--color-font);
+  }
+
+  a {
+    color: var(--color-font);
   }
 }
+
+/* Ensure readability with theme colors */
+@layer components {
+  .theme-aware {
+    background-color: var(--color-bg);
+    color: var(--color-font);

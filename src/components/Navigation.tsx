@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from './ThemeToggle'
+import { ThemeSelector } from './ThemeSelector'
 
 interface NavItem {
   label: string
@@ -50,12 +51,13 @@ export const TopNav: React.FC<TopNavProps> = ({
             </span>
           )}
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {userLabel && (
             <span className="hidden sm:inline text-sm text-gray-600 dark:text-gray-300">
               {userLabel}
             </span>
           )}
+          <ThemeSelector />
           {rightContent || <ThemeToggle />}
         </div>
       </div>

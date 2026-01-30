@@ -1,0 +1,278 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id                String      @id @default(cuid())
+  email             String      @unique
+  passwordHash      String
+  firstName         String?
+  lastName          String?
+  avatar            String?
+  emailVerified     Boolean     @default(false)
+  emailVerifiedAt   DateTime?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  deletedAt         DateTime?
+
+  projects          Project[]
+  flashcards        Flashcard[]
+  quizAttempts      QuizAttempt[]
+  exports           Export[]
+  settings          UserSettings?
+  learningProgress  LearningProgress?
+
+  @@map("users")
+}
+
+model Project {
+  id                String      @id @default(cuid())
+  name              String
+  description       String?
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  status            String      @default("PENDING")
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  files             ProjectFile[]
+  words             Word[]
+  exports           Export[]
+  sources           Source[]
+
+  @@index([userId])
+  @@map("projects")
+}
+
+model Source {
+  id                String      @id @default(cuid())
+  projectId         String
+  project           Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  type              String?
+  name              String?
+  
+  createdAt         DateTime    @default(now())
+
+  @@index([projectId])
+  @@map("sources")
+}
+
+model ProjectFile {
+  id                String      @id @default(cuid())
+  projectId         String
+  project           Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  originalName      String
+  fileName          String
+  fileType          String
+  fileSize          Int
+  filePath          String
+  
+  uploadStatus      String      @default("PENDING")
+  processingStatus  String      @default("PENDING")
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  @@index([projectId])
+  @@map("project_files")
+}
+
+model Word {
+  id                String      @id @default(cuid())
+  projectId         String
+  project           Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  word              String
+  language          String      @default("en")
+  frequency         Int         @default(1)
+  wordLength        Int
+  partOfSpeech      String?
+  
+  enrichmentStatus  String      @default("PENDING")
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  enrichment        WordEnrichment?
+  flashcards        Flashcard[]
+
+  @@unique([projectId, word])
+  @@index([projectId])
+  @@map("words")
+}
+
+model WordEnrichment {
+  id                String      @id @default(cuid())
+  wordId            String      @unique
+  word              Word        @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  
+  definition        String?
+  pronunciation     String?
+  
+  enrichedAt        DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  @@map("word_enrichments")
+}
+
+model Flashcard {
+  id                String      @id @default(cuid())
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  wordId            String
+  word              Word        @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  
+  frontContent      String
+  backContent       String?
+  
+  // Spaced Repetition Fields
+  status            String      @default("NEW")  // NEW, LEARNING, REVIEWING, MASTERED
+  masteryLevel      Int         @default(0)      // 0-100%
+  reviewCount       Int         @default(0)
+  lastReviewedAt    DateTime?
+  nextReviewAt      DateTime?
+  difficultyFactor  Float       @default(2.5)
+  
+  // Flags
+  isFlagged         Boolean     @default(false)
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  quizAttempts      QuizAttempt[]
+  reviews           SpacedRepetitionReview[]
+
+  @@unique([userId, wordId])
+  @@index([userId])
+  @@index([nextReviewAt])
+  @@map("flashcards")
+}
+
+model SpacedRepetitionReview {
+  id                String      @id @default(cuid())
+  flashcardId       String
+  flashcard         Flashcard   @relation(fields: [flashcardId], references: [id], onDelete: Cascade)
+  
+  wasCorrect        Boolean
+  reviewedAt        DateTime    @default(now())
+  nextReviewAt      DateTime
+  qualityScore      Int         // 0-5 scale for SM-2 algorithm
+
+  @@index([flashcardId])
+  @@map("spaced_repetition_reviews")
+}
+
+model QuizAttempt {
+  id                String      @id @default(cuid())
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  flashcardId       String?
+  flashcard         Flashcard?  @relation(fields: [flashcardId], references: [id], onDelete: SetNull)
+  
+  quizType          String      // MULTIPLE_CHOICE, MATCHING, FILL_BLANK, SYNONYM_ANTONYM, CONTEXT
+  question          String
+  userAnswer        String?
+  correctAnswer     String
+  isCorrect         Boolean
+  
+  attemptedAt       DateTime    @default(now())
+
+  @@index([userId])
+  @@map("quiz_attempts")
+}
+
+model LearningProgress {
+  id                String      @id @default(cuid())
+  userId            String      @unique
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Progress Tracking
+  totalCardsCreated Int         @default(0)
+  cardsMastered     Int         @default(0)
+  cardsInProgress   Int         @default(0)
+  cardsNotStarted   Int         @default(0)
+  
+  // Study Streaks
+  currentStreak     Int         @default(0)
+  longestStreak     Int         @default(0)
+  lastStudyDate     DateTime?
+  
+  // Daily Goals
+  dailyGoal         Int         @default(20)
+  todayStudied      Int         @default(0)
+  
+  // Time Tracking
+  totalStudyTime    Int         @default(0)  // in seconds
+  
+  // Statistics
+  totalQuizzesAttempted Int     @default(0)
+  totalQuizzesCorrect   Int     @default(0)
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  achievements      Achievement[]
+
+  @@map("learning_progress")
+}
+
+model Achievement {
+  id                String      @id @default(cuid())
+  progressId        String
+  progress          LearningProgress @relation(fields: [progressId], references: [id], onDelete: Cascade)
+  
+  badge             String      // FIRST_50, WEEK_WARRIOR, MONTH_MASTER, etc.
+  title             String
+  description       String
+  icon              String?
+  
+  unlockedAt        DateTime    @default(now())
+
+  @@unique([progressId, badge])
+  @@index([progressId])
+  @@map("achievements")
+}
+
+model Export {
+  id                String      @id @default(cuid())
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  projectId         String
+  project           Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  format            String
+  fileName          String
+  status            String      @default("PENDING")
+  
+  createdAt         DateTime    @default(now())
+
+  @@index([userId])
+  @@index([projectId])
+  @@map("exports")
+}
+
+model UserSettings {
+  id                String      @id @default(cuid())
+  userId            String      @unique
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  theme             String      @default("LIGHT")
+  dailyGoal         Int         @default(20)
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  @@map("user_settings")
+}

@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1A2A4A;
+  --color-primary-dark: #0F1A2F;
+  --color-primary-light: #2C3E5F;
+  
+  /* Secondary Colors */
+  --color-secondary: #00D9FF;
+  --color-secondary-dark: #00B8D4;
+  --color-secondary-light: #4DE4FF;
+  
+  /* Accent Colors */
+  --color-accent-1: #FF6B6B;
+  --color-accent-2: #4ECDC4;
+  --color-accent-3: #FFE66D;
+  --color-accent-4: #A8DADC;
+  
+  /* Neutral Colors */
+  --color-bg-primary: #F8F9FA;
+  --color-bg-secondary: #FFFFFF;
+  --color-text-primary: #1A202C;
+  --color-text-secondary: #718096;
+  --color-border: #E2E8F0;
+  
+  /* Status Colors */
+  --color-success: #48BB78;
+  --color-warning: #ECC94B;
+  --color-error: #F56565;
+  --color-info: #4299E1;
+}
+
+[data-theme='dark'] {
+  --color-bg-primary: #1A202C;
+  --color-bg-secondary: #2D3748;
+  --color-text-primary: #F7FAFC;
+  --color-text-secondary: #A0AEC0;
+  --color-border: #4A5568;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-bg-primary)] text-[var(--color-text-primary)];
+  }
+}

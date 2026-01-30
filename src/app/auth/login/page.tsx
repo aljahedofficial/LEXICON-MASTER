@@ -108,7 +108,7 @@ export default function LoginPage() {
               href="/auth/register"
               className="w-full flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
-              Create New Account
+              Sign in
             </Link>
             <Link
               href="/auth/register"
